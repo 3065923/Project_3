@@ -1,17 +1,20 @@
-from flask import Flask
+from flask import Flask, render_template, redirect, request
 from flask import jsonify
-from flask import Flask, render_template, redirect
 
 #----------------- BASIC ENDPOINTS -------------------- 
 
 app = Flask(__name__)
-@app.route('/data/', methods=['GET', 'POST'])
-def dumb():
-    return "Hello World!"
 
 @app.route("/")
 def welcome():
     return render_template("index.html")
+
+# API works by passing quereys e.g. {url}/query?key=value&key=value&key=value
+#each key value pair is seperated by & and the full query is preceeded by a ? 
+@app.route("/query", methods=['GET', 'POST'])
+def query():
+    thing = request.args.get('thing')
+    return thing
 
 
 #---------------- API BELOW -----------------
