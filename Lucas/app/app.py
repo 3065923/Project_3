@@ -34,7 +34,6 @@ def welcome():
 @app.route("/query", methods=['GET', 'POST'])
 def query():
     input = request.args.get('ticker')
-    print(input)
     #here use this key to find the corrisponding value and return it. Should pass a stock ticker and return a json object with all the correponding data. 
     
     return jsonify(data[input])
