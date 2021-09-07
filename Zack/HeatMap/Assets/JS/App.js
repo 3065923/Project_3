@@ -8,7 +8,7 @@ function makeResponsive() {
     }
     // SVG wrapper dimensions are determined by the current width and
     // height of the browser window.
-    var svgWidth = window.innerWidth * 0.8;
+    var svgWidth = window.innerWidth * 0.7;
     var svgHeight = window.innerHeight * 0.8;
 
     //Set Margins
@@ -16,7 +16,7 @@ function makeResponsive() {
         top: 20,
         right: 40,
         bottom: 150,
-        left: 100
+        left: 20
     };
 
     // Set Width and Height variables
