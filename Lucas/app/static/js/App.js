@@ -1,10 +1,5 @@
 var url = "http://127.0.0.1:5000/query"
 
-d3.json(url).then(data=> {
-
-    console.log(data)
-});
-
 function makeResponsive() {
     // if the SVG area isn't empty when the browser loads,
     // remove it and replace it with a resized version of the chart
@@ -45,16 +40,14 @@ function makeResponsive() {
             
             // console.log(data)
 
-            var list = ["DOW", "EBAY", "IBM", "MCK", "NFLX", "NVDA", "PFE", "PG", "TXN", "VZ"]
-            var weeks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+            var list = ["DOW", "EBAY", "IBM", "MCK", "NFLX", "NVDA", "PFE", "PG", "TXN", "VZ"];
+            var weeks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
 
             var results_list = [];
 
             list.forEach( ticker => {
                 results_list.push(data[ticker]['2020']);
             });
-
-            console.log(results_list)
 
             var tickers = ["DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW",
                            "EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY",
@@ -65,7 +58,7 @@ function makeResponsive() {
                            "PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE",
                            "PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG",
                            "TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN",
-                           "VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ"]
+                           "VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ"];
             
             var weeknumber = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
                               "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
@@ -76,18 +69,20 @@ function makeResponsive() {
                               "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
                               "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
                               "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
-                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
-            var prediction = []
+                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"];
+            var prediction = [];
+
+           
 
             results_list.forEach(results => {
                 // console.log(results)
                 for (let i = 1; i <25; i++) { 
-                                        // tickers.push(results[i]["Ticker"])
-                    // weeknumber.push(results[i]["Week"])
+                                        
                     prediction.push(results[i]["Prediction"])
                 }
             });
 
+            var datums = [tickers, weeknumber, prediction];
 
             // console.log(tickers)
 
@@ -97,7 +92,7 @@ function makeResponsive() {
         
         
         // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
-        const myGroups = weeks
+        const myGroups = weeknumber
         const myVars = list
 
         // Build X scales and axis:
@@ -161,15 +156,19 @@ function makeResponsive() {
 
         // add the squares
         svg.selectAll()
-            .data(results_list, function(d) {return d.tickers+ ':' +d.weeknumber;})
+            .data(datums, function(d) {
+                return d;
+                
+                console.log(this);
+            })
             .join("rect")
-            .attr("x", function(d) {return d.tickers})
-            .attr("y", function(d) {return d.weeknumber})
+            .attr("x", function(d) { return x(1)}) //function(d) {return d[1]})
+            .attr("y", function(d) {return y(datums)})
             .attr("rx", 10)
             .attr("ry", 10)
             .attr("width", x.bandwidth() )
             .attr("height", y.bandwidth() )
-            .style("fill", function(d) {return d.prediction})
+            .style("fill", function(d) {return d})
             .style("stroke-width", 4)
             .style("stroke", "none")
             .style("opacity", 0.8)
