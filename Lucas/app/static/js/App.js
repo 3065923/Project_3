@@ -56,26 +56,44 @@ function makeResponsive() {
 
             console.log(results_list)
 
-            var tickers = []
-            var weeknumber = []
+            var tickers = ["DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW","DOW",
+                           "EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY","EBAY",
+                           "IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM","IBM",
+                           "MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK","MCK",
+                           "NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX","NFLX",
+                           "NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA","NVDA",
+                           "PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE","PFE",
+                           "PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG","PG",
+                           "TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN","TXN",
+                           "VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ","VZ"]
+            
+            var weeknumber = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+                              "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
             var prediction = []
 
             results_list.forEach(results => {
                 // console.log(results)
-                for (let i = 0; i <25; i++) { 
-                    console.log(results)
-                    tickers.push(results[i]["Ticker"])
-                    weeknumber.push(results[i]["Week"])
+                for (let i = 1; i <25; i++) { 
+                                        // tickers.push(results[i]["Ticker"])
+                    // weeknumber.push(results[i]["Week"])
                     prediction.push(results[i]["Prediction"])
                 }
             });
 
 
-            console.log(tickers)
+            // console.log(tickers)
 
-            console.log(weeknumber)
+            // console.log(weeknumber)
 
-            console.log(prediction)
+            // console.log(prediction)
         
         
         // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
@@ -141,24 +159,23 @@ function makeResponsive() {
             .style("opacity", 0.8)
         }
 
-        // // add the squares
-        // svg.selectAll()
-        //     .data(results_list, function(d) {return d.;})
-        //     .join("rect")
-        //     .attr("x", function(d) { return x(d.Ticker) })
-        //     .attr("y", function(d) { return y(d.Week) })
-        //     .attr("rx", 4)
-        //     .attr("ry", 4)
-        //     .attr("width", x.bandwidth() )
-        //     .attr("height", y.bandwidth() )
-        //     .style("fill", function(d) { return myColor(d.value)} )
-        //     .style("stroke-width", 4)
-        //     .style("stroke", "none")
-        //     .style("opacity", 0.8)
-        //     .on("mouseover", mouseover)
-        //     .on("mousemove", mousemove)
-        //     .on("mouseleave", mouseleave)
-        // })
+        // add the squares
+        svg.selectAll()
+            .data(results_list, function(d) {return d.tickers+ ':' +d.weeknumber;})
+            .join("rect")
+            .attr("x", function(d) {return d.tickers})
+            .attr("y", function(d) {return d.weeknumber})
+            .attr("rx", 10)
+            .attr("ry", 10)
+            .attr("width", x.bandwidth() )
+            .attr("height", y.bandwidth() )
+            .style("fill", function(d) {return d.prediction})
+            .style("stroke-width", 4)
+            .style("stroke", "none")
+            .style("opacity", 0.8)
+            .on("mouseover", mouseover)
+            .on("mousemove", mousemove)
+            .on("mouseleave", mouseleave)
 
         // // Add title to graph
         // svg.append("text")
