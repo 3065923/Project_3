@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def welcome():
-    return render_template("index.html", data=data)
+    return render_template("Heatmap.html", data=data)
 
 # API works by passing quereys e.g. {url}/query?key=value&key=value&key=value
 # each key value pair is seperated by & and the full query is preceeded by a ? 
