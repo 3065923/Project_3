@@ -55,6 +55,27 @@ function makeResponsive() {
             });
 
             console.log(results_list)
+
+            var tickers = []
+            var weeknumber = []
+            var prediction = []
+
+            results_list.forEach(results => {
+                // console.log(results)
+                for (let i = 0; i <25; i++) { 
+                    console.log(results)
+                    tickers.push(results[i]["Ticker"])
+                    weeknumber.push(results[i]["Week"])
+                    prediction.push(results[i]["Prediction"])
+                }
+            });
+
+
+            console.log(tickers)
+
+            console.log(weeknumber)
+
+            console.log(prediction)
         
         
         // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
@@ -120,23 +141,23 @@ function makeResponsive() {
             .style("opacity", 0.8)
         }
 
-        // add the squares
-        svg.selectAll()
-            .data(results_list, function(d) {return d.Prediction;})
-            .join("rect")
-            .attr("x", function(d) { return x(d.Ticker) })
-            .attr("y", function(d) { return y(d.Week) })
-            .attr("rx", 4)
-            .attr("ry", 4)
-            .attr("width", x.bandwidth() )
-            .attr("height", y.bandwidth() )
-            .style("fill", function(d) { return myColor(d.value)} )
-            .style("stroke-width", 4)
-            .style("stroke", "none")
-            .style("opacity", 0.8)
-            .on("mouseover", mouseover)
-            .on("mousemove", mousemove)
-            .on("mouseleave", mouseleave)
+        // // add the squares
+        // svg.selectAll()
+        //     .data(results_list, function(d) {return d.;})
+        //     .join("rect")
+        //     .attr("x", function(d) { return x(d.Ticker) })
+        //     .attr("y", function(d) { return y(d.Week) })
+        //     .attr("rx", 4)
+        //     .attr("ry", 4)
+        //     .attr("width", x.bandwidth() )
+        //     .attr("height", y.bandwidth() )
+        //     .style("fill", function(d) { return myColor(d.value)} )
+        //     .style("stroke-width", 4)
+        //     .style("stroke", "none")
+        //     .style("opacity", 0.8)
+        //     .on("mouseover", mouseover)
+        //     .on("mousemove", mousemove)
+        //     .on("mouseleave", mouseleave)
         // })
 
         // // Add title to graph
