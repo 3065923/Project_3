@@ -38,10 +38,9 @@ function makeResponsive() {
 
     d3.json(url).then(data=> {
             
-            // console.log(data)
 
             var list = ["DOW", "EBAY", "IBM", "MCK", "NFLX", "NVDA", "PFE", "PG", "TXN", "VZ"];
-            var weeks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+            var weeks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"];
 
             var results_list = [];
 
@@ -82,24 +81,32 @@ function makeResponsive() {
                 }
             });
 
-            var datums = [tickers, weeknumber, prediction];
+            var datums = [];
+            
+            var iterator = 0;
+            prediction.forEach( item => {
 
-            // console.log(tickers)
+                tempArr = [];
+                tempArr.push(tickers[iterator]);
+                tempArr.push(weeknumber[iterator])
+                tempArr.push(item);
 
-            // console.log(weeknumber)
+                datums.push(tempArr);
 
-            // console.log(prediction)
+                iterator ++;
+
+            });   
         
         
         // Labels of row and columns -> unique identifier of the column called 'group' and 'variable'
-        const myGroups = weeknumber
+        const myGroups = weeks
         const myVars = list
 
         // Build X scales and axis:
         const x = d3.scaleBand()
-            .range([ 0, width ])
             .domain(myGroups)
-            .padding(0.05);
+            .range([ 0, width ])
+
         svg.append("g")
             .style("font-size", 15)
             .attr("transform", `translate(0, ${height})`)
@@ -108,9 +115,10 @@ function makeResponsive() {
 
         // Build Y scales and axis:
         const y = d3.scaleBand()
-            .range([ height, 0 ])
             .domain(myVars)
-            .padding(0.05);
+            .range([ height, 0 ])
+            
+
         svg.append("g")
             .style("font-size", 15)
             .call(d3.axisLeft(y).tickSize(0))
@@ -156,19 +164,15 @@ function makeResponsive() {
 
         // add the squares
         svg.selectAll()
-            .data(datums, function(d) {
-                return d;
-                
-                console.log(this);
-            })
+            .data(datums, function(d) {  return d;  })
             .join("rect")
-            .attr("x", function(d) { return x(1)}) //function(d) {return d[1]})
-            .attr("y", function(d) {return y(datums)})
-            .attr("rx", 10)
-            .attr("ry", 10)
+            .attr("x", function(d) {  return x(d[1]);  }) //function(d) {return d[1]})
+            .attr("y", function(d) {  return y(d[0])  })
+            .attr("rx", 4)
+            .attr("ry", 4)
             .attr("width", x.bandwidth() )
             .attr("height", y.bandwidth() )
-            .style("fill", function(d) {return d})
+            .style("fill", function(d) {return myColor(d[2]); })
             .style("stroke-width", 4)
             .style("stroke", "none")
             .style("opacity", 0.8)
