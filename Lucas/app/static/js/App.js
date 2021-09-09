@@ -136,25 +136,24 @@ function makeResponsive() {
             .attr("class", "tooltip")
             .style("background-color", "white")
             .style("border", "solid")
-            .style("border-width", "2px")
+            .style("border-width", "1px")
             .style("border-radius", "5px")
-            .style("padding", "5px")
+            .style("padding", "10px")
 
         // Three function that change the tooltip when user hover / move / leave a cell
-        const mouseover = function(event,d) {
+        const mouseover = function (event, d) {
             tooltip
-            .style("opacity", 1)
             d3.select(this)
+            .html("<h1>poop</h1>")
             .style("stroke", "black")
             .style("opacity", 1)
         }
-        const mousemove = function(event,d) {
+
+        const mousemove = function(d) {
             tooltip
-            .html("The exact value of<br>this cell is: " + d.value)
-            .style("left", (event.x)/2 + "px")
-            .style("top", (event.y)/2 + "px")
+            .html('<h1>poop</h1>')
         }
-        const mouseleave = function(event,d) {
+        const mouseleave = function(event, d) {
             tooltip
             .style("opacity", 0)
             d3.select(this)

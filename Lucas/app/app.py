@@ -9,8 +9,6 @@ f = open('..\..\DataFiles\weekly_data.json',)
 
 data = json.load(f)
 
-
-
 #----------------- BASIC ENDPOINTS -------------------- 
 
 app = Flask(__name__)
