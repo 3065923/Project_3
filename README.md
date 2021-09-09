@@ -9,3 +9,5 @@ We will then make a flask API (and maybe MongoDB) to serve the data, and will re
 Data Sourced from Kaggle:
 https://www.kaggle.com/miguelaenlle/massive-stock-news-analysis-db-for-nlpbacktests?select=raw_partner_headlines.csv
 https://www.kaggle.com/dgawlik/nyse?select=prices.csv
+
+Link to our Tableau Story: https://public.tableau.com/app/profile/zachary.owen/viz/StockMarketSentimentAnalysis/StockMarketAnalysis?publish=yes
