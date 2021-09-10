@@ -34,11 +34,9 @@ def heatmap_redirect():
 # need another endpoint to do searches by date
 @app.route("/query", methods=['GET', 'POST'])
 def query():
-    
-    #here use this key to find the corrisponding value and return it. Should pass a stock ticker and return a json object with all the correponding data. 
-    
-    return (data)
 
+    #here use this key to find the corrisponding value and return it. Should pass a stock ticker and return a json object with all the correponding data.     
+    return (data)
 
 #------------ RUN FLASK --------------------
 if __name__ == '__main__':
