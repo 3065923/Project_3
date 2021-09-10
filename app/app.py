@@ -1,7 +1,5 @@
-import re
 from flask import Flask, json, render_template, redirect, request
 from flask import jsonify
-import pandas as pd
 import json
 
 #--------------------- DATA PROCESSING ------------------
