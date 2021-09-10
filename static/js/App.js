@@ -36,7 +36,9 @@ function makeResponsive() {
 
     var url = "http://127.0.0.1:5000/query"
 
-    d3.json(url).then(data=> {
+    d3.json('../DataFiles/weekly_data.json').then(data=> {
+
+            data = JSON.parse(data)
             console.log(data);
 
             var list = ["DOW", "EBAY", "IBM", "MCK", "NFLX", "NVDA", "PFE", "PG", "TXN", "VZ"];
