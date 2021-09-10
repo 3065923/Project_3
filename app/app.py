@@ -26,14 +26,9 @@ def heatmap():
 def heatmap_redirect():
     return redirect('/heatmap')
 
-# API works by passing quereys e.g. {url}/query?key=value&key=value&key=value
-# each key value pair is seperated by & and the full query is preceeded by a ? 
-# Structure: we index the data by ticker symbol and then make an API call for that ticker symbol. Should return json object with all data for that symbol. 
-# need another endpoint to do searches by date
 @app.route("/query", methods=['GET', 'POST'])
 def query():
 
-    #here use this key to find the corrisponding value and return it. Should pass a stock ticker and return a json object with all the correponding data.     
     return (data)
 
 #------------ RUN FLASK --------------------
