@@ -5,7 +5,7 @@ import json
 
 #--------------------- DATA PROCESSING ------------------
 
-f = open('..\..\DataFiles\weekly_data.json',)
+f = open('..\DataFiles\weekly_data.json',)
 
 data = json.load(f)
 
