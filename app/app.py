@@ -1,3 +1,4 @@
+import re
 from flask import Flask, json, render_template, redirect, request
 from flask import jsonify
 import pandas as pd
@@ -17,9 +18,17 @@ app = Flask(__name__)
 def welcome():
     return render_template("index.html")
 
+@app.route("/index.html")
+def index():
+    return redirect("/")
+
 @app.route('/heatmap')
 def heatmap():
     return render_template("Heatmap.html")
+
+@app.route('/Heatmap.html')
+def heatmap_redirect():
+    return redirect('/heatmap')
 
 # API works by passing quereys e.g. {url}/query?key=value&key=value&key=value
 # each key value pair is seperated by & and the full query is preceeded by a ? 
