@@ -1,16 +1,14 @@
 from flask import Flask, json, render_template, redirect, request
 from flask import jsonify
 import json
-
-#--------------------- DATA PROCESSING ------------------
-
-f = open('..\DataFiles\weekly_data.json',)
-
-data = json.load(f)
-
+import os
 #----------------- BASIC ENDPOINTS -------------------- 
 
 app = Flask(__name__)
+
+f = open('..\DataFiles\weekly_data.json',) 
+
+data = json.load(f)
 
 @app.route("/")
 def welcome():
