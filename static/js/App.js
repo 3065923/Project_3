@@ -131,39 +131,37 @@ function makeResponsive() {
             .interpolator(d3.interpolateInferno)
             .domain([0,1])
 
-         // create a tooltip
-  const tooltip = d3.select("#my_dataviz")
-  .append("div")
-  .style("opacity", 0)
-  .attr("class", "tooltip")
-  .style("background-color", "white")
-  .style("border", "solid")
-  .style("border-width", "2px")
-  .style("border-radius", "5px")
-  .style("padding", "5px")
+        // create a tooltip
+        const tooltip = d3.select("#my_dataviz")
+            .append("div")
+            .style("opacity", 0)
+            .attr("class", "tooltip")
+            .style("background-color", "white")
+            .style("border", "solid")
+            .style("border-width", "1px")
+            .style("border-radius", "5px")
+            .style("padding", "10px")
 
-// Three function that change the tooltip when user hover / move / leave a cell
-    const mouseover = function(event,d) {
-        tooltip
-        .style("opacity", 1)
-        d3.select(this)
+        // Three function that change the tooltip when user hover / move / leave a cell
+        const mouseover = function (event, d) {
+            tooltip
+            d3.select(this)
+            .html("<h1>poop</h1>")
             .style("stroke", "black")
             .style("opacity", 1)
-    }
-    const mousemove = function(event,d) {
-        tooltip
-        .html("The exact value of<br>this cell is: " + 213)
-        .style("left", (event.x)/2 + "px")
-        .style("top", (event.y)/2 + "px")
-    }
-    const mouseleave = function(event,d) {
-        tooltip
-        .style("opacity", 0)
-        d3.select(this)
-        .style("stroke", "none")
-        .style("opacity", 0.8)
-    }
-        
+        }
+
+        const mousemove = function(d) {
+            tooltip
+            .html('<h1>poop</h1>')
+        }
+        const mouseleave = function(event, d) {
+            tooltip
+            .style("opacity", 0)
+            d3.select(this)
+            .style("stroke", "none")
+            .style("opacity", 0.8)
+        }
 
         // add the squares
         svg.selectAll()
