@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>S&P 500 Sentiment Visualizations</title>
+  </head>
+
+
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Sentiment Analysis</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="index.html" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Plots
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="whySP500.html">Why the S&P 500?</a>
+                  <a class="dropdown-item" href="sizeRange.html">Size Range</a>
+                  <a class="dropdown-item" href="biggestMovers.html">Biggest Movers</a>
+                  <a class="dropdown-item" href="Heatmap.html">Heat Map</a>
+                  <!-- <div class="dropdown-divider"></div> -->
+                  <!-- <a class="dropdown-item" href="comparisons.html">Comparisons</a>                 -->
+                </div>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="data.html">Data </a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <h2><u>Standard and Poor's 500</u></h2>
+    <br>
+
+    <!-- Setting up the Container structure of the page -->
+    <div class="container">
+      <div class="row">
+        <br>
+        <br>
+        <h4><i><q>Stocks always go down faster than they go up, but they always go up more than they go down</q></i> <br>-David Gardner</h4>
+        <br>
+        <br>
+      </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box">
+                    <figure class="figure">
+                        <img src="SP500_Historical_Value.jpg" class="figure-img img-fluid">
+                    </figure>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="box">
+                    <p>
+                        <h4><u>What is the S&P 500?</u></h4>
+                        <br><h6>Top 500 largest US companies by market cap.</h6>
+                        
+                        <li>There are ~3600 public companies in the US.</li>
+                        <li>Established in 1957, and has an anualized return of around 8% through 2018</li>
+                        <li><q>Standard Statistics Company</q> (Founded 1906) computed <i>weekly</i> statistics for 233 US companies. </li>
+                        <li><q>Poor's Publishing</q> (Founded 1860) published investing guides for the railroad industry. </li>
+                        <li>1941- Poor's Publishing and Standard Statistics Company merged. </li>
+                        <li>1957- Expanded its <i>daily</i> analysis from 90 companies to 500</li>
+                        <br>
+                                                
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- setting up mini pictures down at the bottom -->
+
+    <div style="padding-top: 60px;">
+        <table class="table">
+            <thead>
+                <tr style="text-align: center">
+                    <th>Why the SP500?</th>
+                    <th>Size Range</th>
+                    <th>Biggest Movers</th>
+                    <th>Heat Map</th>
+                </tr>                
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                      <a href="whySP500.html">
+                        <img class="img-thumbnail" src="Resources/assets/images/Fig1.png" alt="Why the SP500?">
+                      </a>
+                    </td>
+                    <td>
+                      <a href="sizeRange.html">
+                        <img class="img-thumbnail" src="Resources/assets/images/Fig2.png" alt="Size Range">
+                      </a>
+                    </td>
+                    <td>
+                      <a href="biggestMovers.html">
+                        <img class="img-thumbnail" src="Resources/assets/images/Fig3.png" alt="Biggest Movers">
+                      </a>
+                    </td>
+                    <td>
+                      <a href="heatMap.html">
+                        <img class="img-thumbnail" src="Resources/assets/images/Fig4.png" alt="Heat Map">
+                      </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- Footer-->
+    <div id="footer">
+      <p>A Freed Owen Burns & Associates Production &copy;2021</p>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
+    <script type="text/javascript" src="../static/js/index.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  </body>
+</html>
