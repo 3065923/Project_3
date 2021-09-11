@@ -131,37 +131,39 @@ function makeResponsive() {
             .interpolator(d3.interpolateInferno)
             .domain([0,1])
 
-        // create a tooltip
-        const tooltip = d3.select("#my_dataviz")
-            .append("div")
-            .style("opacity", 0)
-            .attr("class", "tooltip")
-            .style("background-color", "white")
-            .style("border", "solid")
-            .style("border-width", "1px")
-            .style("border-radius", "5px")
-            .style("padding", "10px")
+         // create a tooltip
+  const tooltip = d3.select("#my_dataviz")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "2px")
+  .style("border-radius", "5px")
+  .style("padding", "5px")
 
-        // Three function that change the tooltip when user hover / move / leave a cell
-        const mouseover = function (event, d) {
-            tooltip
-            d3.select(this)
-            .html("<h1>poop</h1>")
+// Three function that change the tooltip when user hover / move / leave a cell
+    const mouseover = function(event,d) {
+        tooltip
+        .style("opacity", 1)
+        d3.select(this)
             .style("stroke", "black")
             .style("opacity", 1)
-        }
-
-        const mousemove = function(d) {
-            tooltip
-            .html('<h1>poop</h1>')
-        }
-        const mouseleave = function(event, d) {
-            tooltip
-            .style("opacity", 0)
-            d3.select(this)
-            .style("stroke", "none")
-            .style("opacity", 0.8)
-        }
+    }
+    const mousemove = function(event,d) {
+        tooltip
+        .html("The exact value of<br>this cell is: " + 213)
+        .style("left", (event.x)/2 + "px")
+        .style("top", (event.y)/2 + "px")
+    }
+    const mouseleave = function(event,d) {
+        tooltip
+        .style("opacity", 0)
+        d3.select(this)
+        .style("stroke", "none")
+        .style("opacity", 0.8)
+    }
+        
 
         // add the squares
         svg.selectAll()
@@ -181,23 +183,15 @@ function makeResponsive() {
             .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)
 
-        // // Add title to graph
-        // svg.append("text")
-        //         .attr("x", 0)
-        //         .attr("y", -50)
-        //         .attr("text-anchor", "left")
-        //         .style("font-size", "22px")
-        //         .text("A d3.js heatmap");
-
-        // // Add subtitle to graph
-        // svg.append("text")
-        //         .attr("x", 0)
-        //         .attr("y", -20)
-        //         .attr("text-anchor", "left")
-        //         .style("font-size", "14px")
-        //         .style("fill", "grey")
-        //         .style("max-width", 400)
-        //         .text("A short description of the take-away message of this chart.");
+        // Add subtitle to graph
+        svg.append("text")
+                .attr("x", 0.4*width)
+                .attr("y", height + 50)
+                .attr("text-anchor", "left")
+                .style("font-size", "14px")
+                .style("fill", "grey")
+                .style("max-width",300)
+                .text("Weeks in 2020");
         });
 
 };
