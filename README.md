@@ -1,9 +1,9 @@
 # Machine Learning Sentiment Analysis for the S&P 500
 A Machine Learning project performing sentiment analysis on stock market headlines
 
-This project will use natural language processing to create a sentiment index for stocks in the S&P 500. We are looking at using either a SVG model or a naive bayes model that will be tuned with grid search. We will preprocess the data both to get word stems, and to remove filler words. 
+This project will use natural language processing to create a sentiment index for stock news in the S&P 500. We are looking at using Multinomial Naive Bayes model. We will preprocess the data both to get word stems, and to remove filler words. 
 
-We will then make a flask API (and maybe MongoDB) to serve the data, and will render it using JavaScript and D3  (?)
+
 
 
 Data Sourced from Kaggle:
